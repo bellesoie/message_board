@@ -13,11 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getAllMessages", query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
-                )
+        @NamedQuery(name = "getAllMessages", query = "SELECT m FROM Message AS m ORDER BY m.id DESC")
 })
-
 @Table(name = "messages")
+
 public class Message {
     @Id
     @Column(name = "id")
@@ -32,6 +31,7 @@ public class Message {
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
+
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
@@ -63,7 +63,11 @@ public class Message {
         return created_at;
     }
 
-    public Timestamp setCreated_at(Timestamp created_at) {
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    public Timestamp getCreated_at(Timestamp created_at) {
         return updated_at;
     }
 
